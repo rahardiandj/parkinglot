@@ -4,15 +4,13 @@ import (
 	"context"
 )
 
-// type Mod struct {
-// 	Commands []Command
-// }
-
 type Mod struct {
-	Commands []string
+	Commands []Command
+	Message  []Message
+	ParkingLot
 }
 
 func New(ctx context.Context) *Mod {
-	parkingLotMod := &Mod{}
-	return parkingLotMod
+	parkinglotMod := &Mod{}
+	return parkinglotMod
 }

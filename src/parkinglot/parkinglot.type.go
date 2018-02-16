@@ -6,7 +6,7 @@ type CarRegistration struct {
 }
 
 type ParkingLot struct {
-	Lots     map[int]CarRegistration
+	Lots     []*CarRegistration
 	Capacity int
 	Status   string
 }

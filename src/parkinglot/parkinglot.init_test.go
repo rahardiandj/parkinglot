@@ -8,6 +8,7 @@ import (
 
 var capacityTest int
 var testParkinglotMod *Mod
+var carReg1 CarRegistration
 
 func TestMain(m *testing.M) {
 
@@ -21,4 +22,6 @@ func TestMain(m *testing.M) {
 
 func initData() {
 	capacityTest = 3
+	carReg1.Number = "KA-01-HH-1234"
+	carReg1.Color = "White"
 }
