@@ -1,7 +1,10 @@
 package parkinglot
 
-import "strconv"
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+	"strings"
+)
 
 func (mod *Mod) CreateParkingLot(capacity int) Message {
 	lots := make([]*CarRegistration, capacity)
@@ -39,4 +42,55 @@ func (mod *Mod) LeaveLot(slotNo int) Message {
 	}
 	mod.Message[2].Formatted(string(slotNo))
 	return mod.Message[2]
+}
+
+func (mod *Mod) GetRegNumberByColor(color string) Message {
+	var result []string
+
+	for _, lot := range mod.ParkingLot.Lots {
+		if lot.Color == color {
+			result = append(result, lot.Number)
+		}
+	}
+	if len(result) == 0 {
+		return mod.Message[5]
+	}
+	message := Message{
+		Message: fmt.Sprintf(strings.Join(result[:], ",")),
+	}
+	return message
+}
+
+func (mod *Mod) GetSlotByColor(color string) Message {
+	var result []string
+
+	for i, lot := range mod.ParkingLot.Lots {
+		if lot.Color == color {
+			result = append(result, string(i))
+		}
+	}
+	if len(result) == 0 {
+		return mod.Message[5]
+	}
+	message := Message{
+		Message: fmt.Sprintf(strings.Join(result[:], ",")),
+	}
+	return message
+}
+
+func (mod *Mod) GetSlotByRegNo(regNo string) Message {
+	var result []string
+
+	for i, lot := range mod.ParkingLot.Lots {
+		if lot.Number == regNo {
+			result = append(result, string(i))
+		}
+	}
+	if len(result) == 0 {
+		return mod.Message[5]
+	}
+	message := Message{
+		Message: fmt.Sprintf(strings.Join(result[:], ",")),
+	}
+	return message
 }

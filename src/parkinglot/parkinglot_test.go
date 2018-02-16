@@ -45,3 +45,57 @@ func TestLeaveLot(t *testing.T) {
 	}
 
 }
+
+func TestGetRegNoByColor(t *testing.T) {
+	message := testParkinglotMod.CreateParkingLot(capacityTest)
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.ParkCar(&carReg1)
+
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.GetRegNumberByColor("White")
+
+	fmt.Println(message.Message)
+
+	if message.Message != "KA-01-HH-1234" {
+		t.Errorf("Failed to get data")
+	}
+
+}
+
+func TestGetSlotByColor(t *testing.T) {
+	message := testParkinglotMod.CreateParkingLot(capacityTest)
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.ParkCar(&carReg1)
+
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.GetSlotByColor("White")
+
+	fmt.Println(message.Message)
+
+	if message.Message != "1" {
+		t.Errorf("Failed to get data")
+	}
+
+}
+
+func TestGetSlotByCarReg(t *testing.T) {
+	message := testParkinglotMod.CreateParkingLot(capacityTest)
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.ParkCar(&carReg1)
+
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.GetSlotByColor("KA-01-HH-1234")
+
+	fmt.Println(message.Message)
+
+	if message.Message != "1" {
+		t.Errorf("Failed to get data")
+	}
+
+}
