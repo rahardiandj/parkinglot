@@ -1,5 +1,6 @@
 # parkinglot
 
+
 Find binnary file named parkinglot
 
 To execute with file ./parkinglot [file name] for example : ./parkinglot file_inputs.txt
@@ -23,3 +24,6 @@ create_parking_lot 6
 
 Output :
 Created a parking lot with 6 slots
+
+NOTES
+If you encounter issue during executing due to incompatible binnary, you can find binnary based on your environment in /bin folder
