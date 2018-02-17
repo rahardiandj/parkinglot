@@ -25,10 +25,10 @@ func (mod *Mod) FileReader(filePath string) []Command {
 
 		command.CommandStr = strParam[0]
 		if len(strParam) > 2 {
-			command.Argument = strParam[1] + strParam[2]
+			command.Argument2 = strParam[2]
 		}
 		if len(strParam) > 1 {
-			command.Argument = strParam[1]
+			command.Argument1 = strParam[1]
 		}
 		commands = append(commands, command)
 	}

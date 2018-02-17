@@ -10,7 +10,7 @@ func (mod *Mod) Init(context.Context) {
 
 	if mod.Commands != nil {
 		for i, command := range mod.Commands {
-			fmt.Printf("%v. %v %v\n", i, command.CommandStr, command.Argument)
+			fmt.Printf("%v. %v %v\n", i+1, command.CommandStr, command.Argument1)
 		}
 	}
 }
@@ -20,17 +20,17 @@ func InitCommand() []Command {
 
 	create := Command{
 		CommandStr: "create_parking_lot",
-		Argument:   "[Capacity]",
+		Argument1:  "[Capacity]",
 	}
 
 	park := Command{
 		CommandStr: "park",
-		Argument:   "[Register No] [Color]",
+		Argument1:  "[Register No] [Color]",
 	}
 
 	leave := Command{
 		CommandStr: "leave",
-		Argument:   "[Slot Number]",
+		Argument1:  "[Slot Number]",
 	}
 
 	status := Command{
@@ -39,17 +39,19 @@ func InitCommand() []Command {
 
 	checkRegNoByColor := Command{
 		CommandStr: "registration_numbers_for_cars_with_colour",
-		Argument:   "[Colour]",
+		Argument1:  "[Colour]",
 	}
 
 	checkSlotByColor := Command{
 		CommandStr: "slot_numbers_for_cars_with_colour",
-		Argument:   "[Register No]",
+		Argument1:  "[Register No]",
 	}
 
 	checkSlotByRegNo := Command{
 		CommandStr: "slot_number_for_registration_number",
+		Argument1:  "[Register No]",
 	}
+
 	commands = append(commands, create, park, leave, status, checkRegNoByColor, checkSlotByColor, checkSlotByRegNo)
 	return commands
 }

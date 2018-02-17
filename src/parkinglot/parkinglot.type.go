@@ -26,5 +26,6 @@ const (
 
 type Command struct {
 	CommandStr string
-	Argument   string
+	Argument1  string
+	Argument2  string
 }

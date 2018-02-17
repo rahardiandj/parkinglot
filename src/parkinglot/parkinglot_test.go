@@ -117,3 +117,21 @@ func TestGetStatus(t *testing.T) {
 		t.Errorf("Check Status doesn't contain correct data")
 	}
 }
+
+func TestExecuteCommand(t *testing.T) {
+	testParkinglotMod.ExecuteCommand(commandCreateTest)
+
+	if testParkinglotMod.Capacity == 0 {
+		t.Errorf("Parking Lot is not created with correct capacity")
+	}
+}
+
+func TestProcessCommand(t *testing.T) {
+	testParkinglotMod.ProcessCommands(commandsTest)
+	if testParkinglotMod.Capacity == 0 {
+		t.Errorf("Parking Lot is not created with correct capacity")
+	}
+	if testParkinglotMod.ParkingLot.Lots[0] == nil {
+		t.Errorf("Car Failed to be added on Parking Lot")
+	}
+}

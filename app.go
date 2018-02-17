@@ -14,12 +14,13 @@ func main() {
 	parkinglotMod := parkinglot.New(ctx)
 	parkinglotMod.Init(ctx)
 
-	arg := os.Args[1]
-	if arg != "" {
+	if len(os.Args) > 1 {
+		arg := os.Args[1]
 		commands := parkinglotMod.FileReader(arg)
 		if commands == nil {
 			fmt.Printf("File text is empty.\n")
 		}
+		parkinglotMod.ProcessCommands(commands)
 	}
 
 	// car := parkinglot.CarRegistration{
