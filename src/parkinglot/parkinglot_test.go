@@ -2,6 +2,7 @@ package parkinglot
 
 import "testing"
 import "fmt"
+import "strings"
 
 func TestCreateParkingLot(t *testing.T) {
 
@@ -98,4 +99,21 @@ func TestGetSlotByCarReg(t *testing.T) {
 		t.Errorf("Failed to get data")
 	}
 
+}
+
+func TestGetStatus(t *testing.T) {
+	message := testParkinglotMod.CreateParkingLot(capacityTest)
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.ParkCar(&carReg1)
+
+	fmt.Println(message.Message)
+
+	message = testParkinglotMod.GetStatus()
+
+	fmt.Println(message.Message)
+
+	if !strings.Contains(message.Message, "KA-01-HH-1234") {
+		t.Errorf("Check Status doesn't contain correct data")
+	}
 }

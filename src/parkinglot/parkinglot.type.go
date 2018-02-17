@@ -12,14 +12,16 @@ type ParkingLot struct {
 }
 
 type Message struct {
-	Message  string
-	Argument string
+	Message string
+	Result  interface{}
 }
 
 const (
-	STATUS_AVAILABLE = "AVAILABLE"
-	STATUS_FULL      = "FULL"
-	STATUS_NOT_FOUND = "NOTFOUND"
+	STATUS_AVAILABLE  = "AVAILABLE"
+	STATUS_FULL       = "FULL"
+	STATUS_NOT_FOUND  = "NOTFOUND"
+	MESSAGE_FULL      = "Sorry, parking lot is full"
+	MESSAGE_NOT_FOUND = "Not Found"
 )
 
 type Command struct {

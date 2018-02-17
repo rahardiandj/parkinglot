@@ -17,7 +17,7 @@ func main() {
 		Number: "K-02323-KK",
 		Color:  "White",
 	}
-	message := parkinglotMod.CreateParkingLot(1)
+	message := parkinglotMod.CreateParkingLot(3)
 	fmt.Printf("%s\n", message.Message)
 	message = parkinglotMod.ParkCar(&car)
 	fmt.Printf("%s\n", message.Message)
@@ -25,4 +25,12 @@ func main() {
 	message = parkinglotMod.ParkCar(&car)
 	fmt.Printf("%s\n", message.Message)
 
+	message = parkinglotMod.ParkCar(&car)
+	fmt.Printf("%s\n", message.Message)
+
+	message = parkinglotMod.LeaveLot(2)
+	fmt.Printf("%s\n", message.Message)
+
+	message = parkinglotMod.GetStatus()
+	fmt.Printf("%s\n", message.Message)
 }
