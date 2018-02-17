@@ -6,7 +6,6 @@ import (
 
 type Mod struct {
 	Commands []Command
-	Message  []Message
 	ParkingLot
 }
 

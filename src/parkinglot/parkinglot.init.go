@@ -2,17 +2,10 @@ package parkinglot
 
 import (
 	"context"
-	"fmt"
 )
 
 func (mod *Mod) Init(context.Context) {
 	mod.Commands = InitCommand()
-
-	if mod.Commands != nil {
-		for i, command := range mod.Commands {
-			fmt.Printf("%v. %v %v\n", i+1, command.CommandStr, command.Argument1)
-		}
-	}
 }
 
 func InitCommand() []Command {
@@ -52,28 +45,10 @@ func InitCommand() []Command {
 		Argument1:  "[Register No]",
 	}
 
-	commands = append(commands, create, park, leave, status, checkRegNoByColor, checkSlotByColor, checkSlotByRegNo)
+	exit := Command{
+		CommandStr: "exit",
+	}
+
+	commands = append(commands, create, park, leave, status, checkRegNoByColor, checkSlotByColor, checkSlotByRegNo, exit)
 	return commands
 }
-
-// func InitMessage() []Message {
-// 	var messages []Message
-// 	created := Message{
-// 		Message: `Created a parking lot with %v slots`,
-// 	}
-// 	allocated := Message{
-// 		Message: "Allocated slot number: %v",
-// 	}
-// 	slotfree := Message{
-// 		Message: "Slot number %v is free",
-// 	}
-// 	full := Message{
-// 		Message: "Sorry, parking lot is full",
-// 	}
-// 	notfound := Message{
-// 		Message: "Not Found",
-// 	}
-// 	messages = append(messages, created, allocated, slotfree, full, notfound)
-
-// 	return messages
-// }
