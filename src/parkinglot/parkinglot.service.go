@@ -79,7 +79,7 @@ func (mod *Mod) GetRegNumberByColor(color string) Message {
 		return message
 	}
 	message := Message{
-		Message: fmt.Sprintf(strings.Join(result[:], ",")),
+		Message: fmt.Sprintf(strings.Join(result[:], ", ")),
 	}
 	return message
 }
@@ -119,7 +119,7 @@ func (mod *Mod) GetSlotByRegNo(regNo string) Message {
 		return message
 	}
 	message := Message{
-		Message: fmt.Sprintf(strings.Join(result[:], ",")),
+		Message: fmt.Sprintf(strings.Join(result[:], ", ")),
 	}
 	return message
 }
